@@ -285,7 +285,7 @@ func (c *Client) GetPayment(ctx context.Context, paymentNo int) (*PaymentDetails
 func (c *Client) GetQRCode(ctx context.Context, invoiceID int, p QRCodeParams) (*QRCodeResponse, error) {
 	query := url.Values{}
 	query.Set("token", c.Token)
-	query.Set("id", fmt.Sprintf("%d", invoiceID))
+	query.Set("InvoiceId", fmt.Sprintf("%d", invoiceID))
 	addIfNotEmpty(query, "ViewType", p.ViewType)
 	addIfNotEmpty(query, "ImageWidth", p.ImageWidth)
 	addIfNotEmpty(query, "ImageHeight", p.ImageHeight)
